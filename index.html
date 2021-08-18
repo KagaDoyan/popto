@@ -48,7 +48,6 @@
                           <div id="pages_maincontent">
                               <div id="content">
                                   <img id="imgnp" src="np.jpg">
-                                  <img id="imgp" src="p.jpg" hidden>
                               </div>
                           </div>
                       </div>
@@ -76,25 +75,25 @@
     var pop = false;
     var cnt = 0;
     var cntdisplay = $("#cnt");
-    var imgp = $('#imgp');
     var imgnp = $('#imgnp');
     const audio = new Audio("pop.mp3" );
     $( document ).ready(function() {
-        imgnp.on('click',function ()
+        imgnp.mousedown(function ()
         {
             pop = true
             cnt++;
             audio.playbackRate = 1.15;
             audio.play();
-            imgnp.hide();
-            imgp.show();
+            imgnp.attr("src","p.jpg");
+            console.log("pop");
             cntdisplay.html(cnt);
-            setTimeout(function() {
-                imgnp.show();
-                imgp.hide();
-                pop = false;
-            }, 50);
         });
+        imgnp.mouseup(function ()
+        {
+            setTimeout(function() {
+                imgnp.attr("src", "np.jpg");
+            }, 60)
+        })
     });
 
 </script>
