@@ -1,8 +1,8 @@
 # Use the official Nginx base image
 FROM nginx
 
-# Copy the HTML file to the default Nginx HTML directory
-COPY index.html /usr/share/nginx/html
+# Copy all files from the current directory to the default Nginx HTML directory
+COPY . /usr/share/nginx/html
 
 # Expose port 80 to allow incoming connections
 EXPOSE 80
